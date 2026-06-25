@@ -9,15 +9,20 @@ export PROCESS = 2
 #-----------------------------------------------------
 export TECH_LEF = $(PLATFORM_DIR)/lef/gt2_tech.lef
 export SC_LEF   = $(PLATFORM_DIR)/lef/gt2_6t_w31_lvt.lef
+# gt2_6t_TSV: front-to-back clock crossing cell (BPR route)
+export ADDITIONAL_LEFS = $(PLATFORM_DIR)/lef/gt2_6t_TSV.lef
 
 export LIB_FILES = $(PLATFORM_DIR)/lib/gt2_6t_w31_lvt_tt_0p7v25c.lib \
+                   $(PLATFORM_DIR)/lib/gt2_6t_TSV.lib \
                    $(ADDITIONAL_LIBS)
 export GDS_FILES = $(PLATFORM_DIR)/gds/gt2_6t_std_cells_w31_lvt.gds \
+                   $(PLATFORM_DIR)/gds/gt2_6t_TSV.gds \
                    $(ADDITIONAL_GDS)
 
 # Cells that should not be used in synthesis/optimization
 export DONT_USE_CELLS = gt2_6t_filler_w31_lvt gt2_6t_tap_w31_lvt \
-                       gt2_6t_decapcc_w31_lvt gt2_6t_tiehigh_w31_lvt gt2_6t_tielow_w31_lvt
+                       gt2_6t_decapcc_w31_lvt gt2_6t_tiehigh_w31_lvt gt2_6t_tielow_w31_lvt \
+                       gt2_6t_TSV
 
 # Fill cells used in fill cell insertion
 export FILL_CELLS ?= gt2_6t_filler_w31_lvt gt2_6t_decapcc_w31_lvt

@@ -31,6 +31,11 @@ set_layer_rc -layer M10 -resistance   0.67 -capacitance 2.5e-4
 set_layer_rc -layer BPR -resistance  30    -capacitance 1.0e-4
 set_layer_rc -layer BM1 -resistance   5    -capacitance 1.5e-4
 set_layer_rc -layer BM2 -resistance   5    -capacitance 1.5e-4
+# Coarse backside power straps (0.36um, thick -> low sheet R). The PDN straps
+# live on BM3/BM4; routing never uses them so they were omitted, but PSM IR
+# needs them or it errors PSM-0020/0021 (zero resistance).
+set_layer_rc -layer BM3 -resistance   1    -capacitance 1.7e-4
+set_layer_rc -layer BM4 -resistance   1    -capacitance 1.7e-4
 
 # Via resistances (fake; rough scaling vs. cut size)
 set_layer_rc -via V0 -resistance 10

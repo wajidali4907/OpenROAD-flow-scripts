@@ -1,0 +1,41 @@
+library (gt2_6t_TSV) {
+  technology (cmos);
+  delay_model : table_lookup;
+  time_unit : 1ps ;
+  voltage_unit : 1V ;
+  current_unit : 1mA ;
+  capacitive_load_unit(1, pf);
+  pulling_resistance_unit : 1ohm ;
+  leakage_power_unit : 1uW ;
+  nom_process : 1 ;
+  nom_temperature : 25 ;
+  nom_voltage : 0.7 ;
+  default_max_transition : 1000 ;
+
+  lu_table_template (scalar) {
+    variable_1 : total_output_net_capacitance ;
+    index_1 ("0.0");
+  }
+
+  /* gt2_6t_TSV: passive front-to-back via feed-through, Y = A (near-zero delay). */
+  cell (gt2_6t_TSV) {
+    area : 0.012 ;
+    pin (A) {
+      direction : input ;
+      capacitance : 0.001 ;
+    }
+    pin (Y) {
+      direction : output ;
+      function : "A" ;
+      max_capacitance : 0.5 ;
+      timing () {
+        related_pin : "A" ;
+        timing_sense : positive_unate ;
+        cell_rise (scalar)  { values ("0.0"); }
+        cell_fall (scalar)  { values ("0.0"); }
+        rise_transition (scalar) { values ("0.0"); }
+        fall_transition (scalar) { values ("0.0"); }
+      }
+    }
+  }
+}

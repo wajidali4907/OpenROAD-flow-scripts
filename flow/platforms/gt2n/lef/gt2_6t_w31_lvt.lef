@@ -2189,6 +2189,9 @@ MACRO gt2_6t_filler_w31_lvt
         RECT 0 -0.016 0.042 0.016 ;
     END
   END vss
+  OBS
+  END
+
 END gt2_6t_filler_w31_lvt
 
 MACRO gt2_6t_inv_x1_w31_lvt
