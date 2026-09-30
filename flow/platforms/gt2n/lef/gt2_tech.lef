@@ -671,6 +671,20 @@ VIA V13_0 DEFAULT
     RECT -0.380 -0.800 0.380 0.800 ;
 END V13_0
 
+# Signal nTSV via: M0 (top) <-> BPR (bottom), reusing the existing device cut
+# layer VSD as the via cut. This gives the VSD cut layer a via definition, so
+# when the DRT routing floor drops into the backside the DRT-0233 "cut has no
+# vias" check passes. (The TSV cell's own connection is the device stack
+# M0-VSD-SDCON-VBPR-BPR; this def exists only to satisfy the router.)
+VIA nTSV DEFAULT
+  LAYER M0 ;
+    RECT -0.012 -0.012 0.012 0.012 ;
+  LAYER VSD ;
+    RECT -0.009 -0.009 0.009 0.009 ;
+  LAYER BPR ;
+    RECT -0.021 -0.016 0.021 0.016 ;
+END nTSV
+
 VIARULE BVia4Array GENERATE
   LAYER BRDL ;
     ENCLOSURE 0 0.2 ;
