@@ -506,7 +506,7 @@ VIA BV4_0 DEFAULT
   LAYER BRDL ;
     RECT -0.800 -0.380 0.800 0.380 ;
   LAYER BM4 ;
-    RECT -0.800 -0.180 0.800 0.180 ;
+    RECT -0.840 -0.180 0.840 0.180 ;
 END BV4_0
 
 VIA BV3_0 DEFAULT
@@ -524,7 +524,7 @@ VIA BV2_0 DEFAULT
   LAYER BM3 ;
     RECT -0.180 -0.200 0.180 0.200 ;
   LAYER BM2 ;
-    RECT -0.040 -0.028 0.040 0.028 ;
+    RECT -0.040 -0.192 0.040 0.192 ;
 END BV2_0
 
 VIA BV1_0 DEFAULT
@@ -544,20 +544,6 @@ VIA BV0_0 DEFAULT
   LAYER BPR ;
     RECT -0.021 -0.016 0.021 0.016 ;
 END BV0_0
-
-# Signal nTSV via: M0 (top) <-> BPR (bottom), reusing the existing device cut
-# layer VSD as the via cut. This gives the VSD cut layer a via definition, so
-# when the DRT routing floor drops into the backside the DRT-0233 "cut has no
-# vias" check passes. (The TSV cell's own connection is the device stack
-# M0-VSD-SDCON-VBPR-BPR; this def exists only to satisfy the router.)
-VIA nTSV DEFAULT
-  LAYER M0 ;
-    RECT -0.012 -0.012 0.012 0.012 ;
-  LAYER VSD ;
-    RECT -0.009 -0.009 0.009 0.009 ;
-  LAYER BPR ;
-    RECT -0.021 -0.016 0.021 0.016 ;
-END nTSV
 
 VIA V0_0 DEFAULT
   LAYER V0 ;
@@ -590,7 +576,7 @@ VIA V3_0 DEFAULT
   LAYER V3 ;
     RECT -0.007 -0.0105 0.007 0.0105 ;
   LAYER M3 ;
-    RECT -0.007 -0.014 0.007 0.014 ;
+    RECT -0.007 -0.0145 0.007 0.0145 ;
   LAYER M4 ;
     RECT -0.021 -0.0105 0.021 0.0105 ;
 END V3_0
@@ -608,7 +594,7 @@ VIA V5_0 DEFAULT
   LAYER V5 ;
     RECT  -0.0105 -0.019 0.0105	0.019 ;
   LAYER M5 ;
-    RECT -0.0105 -0.021 0.0105 0.021 ;
+    RECT -0.0105 -0.025 0.0105 0.025 ;
   LAYER M6 ;
     RECT -0.0275 -0.019	0.0275 0.019 ;
 END V5_0
@@ -644,9 +630,9 @@ VIA V9_0 DEFAULT
   LAYER V9 ;
     RECT -0.019	-0.028 0.019 0.028 ;
   LAYER M9 ;
-    RECT -0.019 -0.0275 0.019 0.0275 ;
+    RECT -0.019 -0.038 0.019 0.038 ;
   LAYER M10 ;
-    RECT -0.040 -0.028 0.040 0.028 ;
+    RECT -0.039 -0.028 0.039 0.028 ;
 END V9_0
 
 VIA V10_0 DEFAULT
@@ -660,9 +646,9 @@ END V10_0
 
 VIA V11_0 DEFAULT
   LAYER V11 ;
-    RECT -0.028	-0.18 0.028 0.18 ;
+    RECT -0.028	-0.180 0.028 0.180 ;
   LAYER M11 ;
-    RECT -0.028 -0.040 0.028 0.040 ;
+    RECT -0.028 -0.192 0.028 0.192 ;
   LAYER M12 ;
     RECT -0.200 -0.180 0.200 0.180 ;
 END V11_0
@@ -680,7 +666,7 @@ VIA V13_0 DEFAULT
   LAYER V13 ;
     RECT -0.180 -0.800 0.180 0.800 ;
   LAYER M13 ;
-    RECT -0.180 -0.800 0.180 0.800 ;
+    RECT -0.180 -0.840 0.180 0.840 ;
   LAYER RDL ;
     RECT -0.380 -0.800 0.380 0.800 ;
 END V13_0
